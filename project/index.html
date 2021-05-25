@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="design_files/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+                
+                <!-- STYLE CSS -->
+        <link rel="stylesheet" href="back.css">
+        <!--<link rel="stylesheet" href="design_files/css/style.css">-->
+    </head>
+<body>
+
+
+<!--<div class="wrapper" style="background-image: url(design_files/images/images.jpg)">-->
+<div class="login">
+
+    <div class="demo" style="margin-top: 1%"></div>
+    
+    <form id="loginForm" >
+        <div class="form-wrapper">
+        <label>EMAIL</label>
+        <input type="email" id="email" placeholder="Enter email" class="rcorners2" >
+        </div><br>
+        
+        <div class="form-wrapper">
+        <label >PASSWORD</label><br>
+        <input type="password" id="pass" placeholder="Enter password" class="rcorners2">
+        </div>
+        
+        <div class="form-wrapper">
+            <button id="btn-login" type="button" class="signin">Login</button>
+        </div>
+        
+        <div class="form-wrapper">
+                <a href="forgetpass.html" class="text-dark"> Forgot password?</a>
+        </div><br><br>
+        
+        <div class="form-wrapper">
+                <a href="main.html" class="text-dark">Create Account</a>
+        </div>
+    </form>
+        <!--<form id="loginForm">
+            <div class="form-wrapper">
+                <input type="email" placeholder="Enter Email" class="form-control" required id="email">
+                <i class="zmdi zmdi-email"></i>
+            </div>
+
+            <div class="form-wrapper">
+                <input type="password" placeholder="Enter Password" class="form-control" required id="pass">
+                <i class="zmdi zmdi-lock"></i>
+            </div>
+            
+            <div class="form-group container-login100-form-btn">
+                <button id="btn-login" type="button">Login
+                    <i class="zmdi zmdi-arrow-right"></i>
+                </button>
+            </div>
+            
+            <div class="w-full text-center p-t-27 p-b-239">
+                <span class="text-muted">Forgot</span>
+                <a href="forgetpass.html" class="text-dark">password?</a>
+            </div>
+            
+            <div class="w-full text-center" style="margin-top: 66%; font-size: 15px;">
+                <a href="signup.html" class="text-dark">Create an account</a>
+            </div>
+        </form>-->
+    </div>
+
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+    
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    
+<script type="text/javascript" src="main.js"></script>
+<script>
+    firebase.auth().onAuthStateChanged(function(user){
+        if(user){
+            var userID = firebase.auth().currentUser.uid;
+            firebase.database().ref('Users/' + userID).once('value').then(function(snapshot){
+                if(snapshot.val()){
+                    window.location.href = "ui.html";
+
+                }
+                else{
+                    window.location.href = "profile.html";
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>

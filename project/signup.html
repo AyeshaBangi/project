@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="design_files/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+                
+                <!-- STYLE CSS -->
+    <link rel="stylesheet" href="back.css">
+    
+    <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>-->
+    
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+
+
+</head>
+<body>
+    <div class="login">
+
+    <div class="demo" style="margin-top: 1%"></div>
+    
+    <form id="loginForm" >
+        <div class="form-wrapper">
+        <label style="font-family: sans-serif">EMAIL</label>
+        <input type="email" id="email1" placeholder="Enter email" class="rcorners2" >
+        </div>
+        
+        <div class="form-wrapper">
+        <label >PASSWORD</label><br>
+        <input type="password" id="pass1" placeholder="Enter password(8 characters or more)" class="rcorners2">
+        </div>
+        
+        <div class="form-wrapper">
+        <label >PASSWORD</label><br>
+        <input type="password" id="copass" placeholder="Re-enter password(8 characters or more)" class="rcorners2">
+        </div>
+        
+        <div class="form-wrapper">
+            <button id="btn-signup" type="button" class="signin">Sign Up</button>
+        
+        
+        
+            <a href="main.html" >Already have an account?</a>
+        </div>
+    </form>
+    </div>
+
+<!--<h3>Signup Form</h3>
+
+<div class="wrapper" style="background-image: url(design_files/images/images.jpg)">
+    <div class="inner">
+        <div class="img-holder">
+            <img src="design_files/images/registration1.jpg">
+        </div>
+        <form id="signupForm">
+ 
+        <div class="form-wrapper">
+            <input type="email" placeholder="Enter Email" class="form-control" required id="email1">
+            <i class="zmdi zmdi-email"></i>
+        </div>
+
+        <div class="form-wrapper">
+            <input type="password" placeholder="Enter Password" class="form-control" required id="pass1">
+            <i class="zmdi zmdi-lock"></i>
+        </div>
+
+        <div class="form-wrapper">
+            <input type="password" placeholder="Re-enter Password" class="form-control" required id="copass">
+            <i class="zmdi zmdi-lock"></i>
+        </div>
+     
+        <div class="form-group container-login100-form-btn">
+            <button id="btn-signup" type="submit" >Signup
+                <i class="zmdi zmdi-arrow-right"></i>
+            </button>
+        </div>
+    
+        <div class="w-full text-center" style="margin-top: 49%; font-size: 15px;">
+            <a href="index.html" class="text-dark">Already have an account?</a>
+        </div>
+
+    </form>
+    </div>
+</div>-->
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script type="text/javascript" src="main.js"></script>
+<script>
+    firebase.auth().onAuthStateChanged(function(user){
+        if(user){
+            var userID = firebase.auth().currentUser.uid;
+            firebase.database().ref('Users/' + userID).once('value').then(function(snapshot){
+                if(snapshot.val()){
+                    window.location.href = "ui.html";
+
+                }
+                else{
+                    window.location.href = "form.html";
+                }
+            });
+        }
+    });
+</script>
+</body>
+</html>
