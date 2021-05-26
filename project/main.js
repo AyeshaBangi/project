@@ -14,6 +14,10 @@ var firebaseConfig = {
 
 firebase.auth.Auth.Persistence.LOCAL;
 
+var Roll_no;
+var user= firebase.auth().currentUser;
+
+
 $("#btn-login").click(function(){
     var email = $("#email").val();
     var pass = $("#pass").val();
@@ -31,8 +35,17 @@ $("#btn-login").click(function(){
         window.alert("Please fill all fields");
     }
     
+    var userID = firebase.auth().currentUser.uid;
+    var roll = firebase.database().ref().child('Users/' + userID).once('value').then(function(snapshot){
+        var curuser=snapshot.val();
+        console.log(curuser.Roll_no);
+        document.getElementById("Roll_no").innerHTML =curuser.Roll_no;   
+})      
+            
+    
 });
-
+/*var user = firebase.auth().currentUser;
+console.log(user);*/
 
 $("#btn-logout").click(function(){
     firebase.auth().signOut();
@@ -62,60 +75,6 @@ $("#btn-signup").click(function(){
     else{
         window.alert("Form incomplete");
     }
-    
-    
-    
-    
-    
-    /*    var Roll_no = $("#rno");
-    var Degree = $("#degree").val();
-    var Department = $("#dept").val();
-    var Year_admission = $("#year").val();
-    var Name = $("#name").val();
-    var Semester = $("#semester").val();
-    var Section_name = $("#section").val();
-    var Father_name = $("#fname").val();
-    var Mother_name = $("#mname").val();
-    var Guardian_name = $("#gname").val();
-    var Dob = $("#dob").val();
-    var Blood_group = $("#bgrp").val();
-    var Caste = $("#caste").val();
-    var Category = $("#category").val();
-    var Religion = $("#religion").val();
-    var Aadhar_no = $("#adno").val();
-    var Address = $("#address").val();
-    var Email = $("#email4").val();
-    var Phone_no1 = $("#phone1").val();
-    var Phone_no2 = $("#phone2").val();
-    var Phone_no3 = $("#phone3").val();
-    
-    var loginRef = firebase.database().ref().child("Users");
-    var userID = firebase.auth().currentUser.uid;
-    var usersRef = loginRef.child(userID);
-    
-    var userData = {
-        "rno" : Roll_no,
-        "degree" : Degree,
-        "dept" : Department,
-        "year" : Year_admission,
-        "name" : Name,
-        "semester" : Semester,
-        "section" : Section_name,
-        "fname" : Father_name,
-        "mname" : Mother_name,
-        "gname" : Guardian_name,
-        "dob" : Dob,
-        "bgrp" : Blood_group,
-        "caste" : Caste,
-        "religion" : Religion,
-        "adno" : Aadhar_no,
-        "address" : Address,
-        "email4" : Email,
-        "phone1" : Phone_no1,
-        "phone2" : Phone_no2,
-        "phone3" : Phone_no3
-    };
-    */
 
  });
 
@@ -166,11 +125,59 @@ window.onclick = function(e) {
 }
 
 
+function mygender() {
+    if(document.getElementById('Gender'.checked != true)){
+        alert("Please Select Gender");
+    }
+    var x = document.getElementsByName("gender");
+    
+    for(var i=0;i<x.length;i++){
+        if(x[i].checked){
+            console.log(x[i].value)
+            break;
+        }
+    }
+    return x[i].value;
+}
+
+function mydept() {
+    
+    var y  = document.getElementsByName("dept");
+    for(var i=0; i<y.length;i++){
+        if(y[i].checked){
+            console.log(y[i].value)
+            break;
+        }
+    }
+    return y[i].value;
+}
+
+function mydegree() {
+    var z = document.getElementsByName("degree");
+    for(var i=0 ;i<z.length;i++) {
+        if(z[i].checked){
+            console.log(z[i].value);
+            break;
+        }
+    }
+    return z[i].value;
+}
+
+function myyear() {
+    var a =document.getElementsByName("yearadd");
+    for(var i=0;i<a.length;i++){
+        if(a[i].checked){
+            console.log(a[i].value);
+            break;
+        }
+    }
+    return a[i].value;
+}
 
 $("#btn-update").click(function(){
-    var Roll_no = $("#Roll_no").val();
-    var Degree = $("#Degree").val();
-    var Department = $("#Department").val();
+    //var Roll_no = $("#Roll_no").val();
+    var Degree = mydegree();
+    var Department = mydept();
     var Year_admission = $("#Year_admission").val();
     var Name = $("#Name").val();
     var Semester = $("#Semester").val();
@@ -182,22 +189,31 @@ $("#btn-update").click(function(){
     var Blood_group = $("#Blood_group").val();
     var Caste = $("#Caste").val();
     var Category = $("#Category").val();
-    var Religion = $("#Religion").val();
+    //var Religion = $("#Religion").val();
     var Adhar_no = $("#Adhar_no").val();
     var Address = $("#Address").val();
     var Email = $("#Email").val();
     var Phone_no1 = $("#Phone_no1").val();
     var Phone_no2 = $("#Phone_no2").val();
-    var Phone_no3 = $("#Phone_no3").val();
-    var Gender = $("#Gender").val();
+    //var Phone_no3 = $("#Phone_no3").val();
+   // var Gender = $("#Gender").val();
+    var Gender = mygender();
     var Pan_no =$("#Pan_no").val();
+    var Year_add= myyear();
     
     var loginRef = firebase.database().ref().child("Users");
     var userID = firebase.auth().currentUser.uid;
     var usersRef = loginRef.child(userID);
+    console.log(userID);
     
+
+    
+   /* if(Degree!="" && Department!="" && Year_admission!="" && Name!="" && Semester!="" && Division!="" && Father_name!="" && Mother_name!="" && Guardian_name!="" && Dob!="" && Blood_group!="" && Caste!="" && Category!="" && Adhar_no!="" && Address!="" && Email!="" && Phone_no1!="" && Phone_no2!="" && Gender!="" && Pan_no!="" && Year_add!=""){*/
+    
+    if(Degree!="" && Department!="" && Year_add!="" && Year_admission!="")
+        {
     var userData = {
-        "Roll_no" : Roll_no,
+        //"Roll_no" : Roll_no,
         "Degree" : Degree,
         "Department" : Department,
         "Year_admission" : Year_admission,
@@ -211,17 +227,72 @@ $("#btn-update").click(function(){
         "Blood_group" : Blood_group,
         "Caste" : Caste,
         "Category" : Category,
-        "Religion" : Religion,
+        //"Religion" : Religion,
         "Adhar_no" : Adhar_no,
         "Address" : Address,
         "Email" : Email,
         "Phone_no1" : Phone_no1,
         "Phone_no2" : Phone_no2,
-        "Phone_no3" : Phone_no3,
+        //"Phone_no3" : Phone_no3,
         "Gender" : Gender,
-        "Pan_no" : Pan_no
-
+        "Pan_no" : Pan_no,
+        "Year_add" : Year_add,
     };
+        
+    }
+    else{
+        alert("Please Enter Degree/Department/Year of admission/Year Admitted");
+    }
+    switch(Degree){
+            case "Engineering":
+                var roll1="EN";
+                break;
+            case "Polytechnic":
+                var roll1="Po";
+                break;
+            case "MBA":
+                var roll1="Mb";
+                break;
+        }
+        console.log(roll1);
+    switch(Department){
+        case "Computer":
+            var roll4 = "CS";
+            break;
+        case "IT":
+            var roll4="IT";
+            break;
+        case "Mechanical":
+            var roll4="MEC";
+            break;
+        case "Civil":
+            var roll4="CIV";
+            break;
+        case "Electrical":
+            var roll4="ELE";
+            break;
+        case "E&TC":
+            var roll4="E&TC";
+            break;
+    }
+    console.log(roll4);
+    switch(Year_add){
+        case "FE":
+            var roll3 = "FE";
+            break;
+        case "DSE":
+            var roll3 = "DSE";
+            break;
+    }
+    console.log(roll3);
+    
+    var roll2 = Year_admission;
+    console.log(roll2);
+    
+    var roll = roll1+roll2+roll3+roll4;
+    console.log(roll);
+        
+    
     
     usersRef.set(userData, function(error){
         if(error){
@@ -230,13 +301,36 @@ $("#btn-update").click(function(){
                 
             window.alert("Message : " + errorMessage);
         }
-        else{
-            window.location.href = "index.html";
-        }
+       /* else{
+            window.location.href = "form.html";
+        }*/
     });
-
+    usersRef.update({
+        "Roll_no":Roll_no
+    });
+    
+   /* var roll = firebase.database().ref().child('Users/' + userID).once('value').then(function(snapshot){
+        var curuser=snapshot.val();
+        console.log(curuser.Roll_no);
+        //$("#Roll_no").append(Roll_no);
+    })*/
 });
-
+/*var roll = firebase.database().ref().child('Users/' + userID).once('value').then(function(snapshot){
+        var curuser=snapshot.val();
+        console.log(curuser.Roll_no);*/
+   // })
+/*if(user){   
+        $("#Roll_no").append(Roll_no);
+}*/
+/*var loginRef =firebase.database().ref().child("Users");
+var userID = firebase.auth().currentUser.uid;
+var usersRef = loginRef.child(userID);
+usersRef.set({
+    "Roll_no" : Roll_no
+});
+firebase.database().ref().child("Users/" + uid).set({
+    "Roll_no":Roll_no
+});*/
 
 $("#btn-a").click(function(){
     window.location.href = "index.html";
@@ -250,3 +344,11 @@ $("#btn-b").click(function(){
 $("#main").click(function(){
     window.location.href = "form.html";
 });
+
+firebase.database().ref().child('Academics/').on('value', (snapshot)=>{
+    console.log(snapshot.val());
+})
+/*var loginRef = firebase.database().ref().child("Users");
+    var userID = firebase.auth().currentUser.uid;
+    var usersRef = loginRef.child(userID);
+console.log(userID);*/
