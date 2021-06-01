@@ -1,53 +1,58 @@
 <!DOCTYPE html>
 <html>
-<head>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<link rel="stylesheet" href="design_files/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
-                
-                <!-- STYLE CSS -->
-        <link rel="stylesheet" href="back.css"></head>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="design_files/fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+    <!-- STYLE CSS -->
+    <link rel="stylesheet" href="back.css">
+</head>
+
 <body>
     <div class="login">
 
-<form id="loginForm">
+        <form id="loginForm">
 
-<div class="demo" style="margin-top: 1%"></div><br>
-    <h2>Forgot Password</h2>
+            <div class="demo" style="margin-top: 1%"></div><br>
+            <h2>Forgot Password</h2>
 
-    <div>
-        <p>Please enter your email address below</p>
+            <div>
+                <p>Please enter your email address below</p>
+            </div>
+
+            <div class="form-wrapper">
+                <input type="email" id="email2" placeholder="Enter email" class="rcorners2">
+            </div><br>
+
+            <div class="form-wrapper">
+                <button id="btn-reset" type="button" class="signin">Reset</button>
+            </div>
+
+            <div class="form-wrapper">
+                <button id="btn-back" type="button" class="signin">Cancel</button>
+            </div>
+
+        </form>
     </div>
-    
-    <div class="form-wrapper">
-        <input type="email" id="email2" placeholder="Enter email" class="rcorners2" >
-        </div><br>
-    
-    <div class="form-wrapper">
-            <button id="btn-reset" type="button" class="signin">Reset</button>
-        </div>
-    
-    <div class="form-wrapper">
-            <button id="btn-back" type="button" class="signin">Cancel</button>
-        </div>
-    
-</form>
-    </div>
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
-    
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    
-<script type="text/javascript" src="main.js"></script>
-<script>
-    firebase.auth().onAuthStateChanged(function(user){
-        if(user){
-            window.location.href = "ui.html";
-        }
-    });
-</script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="main.js"></script>
+    <script>
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (user) {
+                window.location.href = "ui.html";
+            }
+        });
+
+    </script>
 </body>
+
 </html>

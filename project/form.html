@@ -1,241 +1,255 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>CodePen - Day 001 Login Form</title>
-  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:600'><link rel="stylesheet" href="ui.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>CodePen - Day 001 Login Form</title>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
+    <link rel="stylesheet" href="ui.css">
     <link rel="stylesheet" href="demo.css">
 
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
+    <!-- partial:index.partial.html -->
     <div class="app-container">
-      <div class="app-header">
-    <div class="app-header-left">
-      <span class="app-icon"></span>
-      <p class="app-name" id="Roll_no"></p>
-      <div class="search-wrapper">
-        <input class="search-input" type="text" placeholder="Search">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
-          <defs></defs>
-          <circle cx="11" cy="11" r="8"></circle>
-          <path d="M21 21l-4.35-4.35"></path>
-        </svg>
-      </div>
-    </div>
-    <div class="app-header-right">
-        <div class="dropdown profile-btn">
-            <button class="dropbtn" onclick="myFunction();">
-                <img src="https://assets.codepen.io/3306515/IMG_2025.jpg" />
-                <span>Ayesha</span>
-            </button>
-        <div class="dropdown-content" id="myDropdown">
-            <a href="form.html">Profile</a>
-            <a id="btn-logout" href="index.html">Logout</a>
-        </div>
-        </div>
-            
-    </div>
-    <button class="messages-btn">
-      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle">
-        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></svg>
-    </button>
-  </div>
-    
-    <div class="app-content">
-    <div class="app-sidebar">
-      <a href="ui.html" class="app-sidebar-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
-          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-          <polyline points="9 22 9 12 15 12 15 22" /></svg>
-      </a>
-      <a href="attendance.html" class="app-sidebar-link">
-        <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-pie-chart" viewBox="0 0 24 24">
-          <defs />
-          <path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z" />
-        </svg>
-      </a>
-      <a href="" class="app-sidebar-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
-          <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-          <line x1="16" y1="2" x2="16" y2="6" />
-          <line x1="8" y1="2" x2="8" y2="6" />
-          <line x1="3" y1="10" x2="21" y2="10" /></svg>
-      </a>
-      <a href="https://feepayr.com/" class="app-sidebar-link">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sidebar"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line>
-          <defs />
-        </svg>
-      </a>
-    </div>
-    
-    <div class="projects-section">
-        
-        <div class="container">
-			<div class="container">
-  <p style="color: black">Basic Details</p>
-  <form id="survey-form">
-      <div class="form-group">
-                      <label id="name-label" for="name">Name</label>
-                      <input type="text" name="name" id="Name" class="form-control" placeholder="Enter your name" formtarget="_self" required/>
+        <div class="app-header">
+            <div class="app-header-left">
+                <span class="app-icon"></span>
+                <p class="app-name" id="Roll_no"></p>
+                <div class="search-wrapper">
+                    <input class="search-input" type="text" placeholder="Search">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-search" viewBox="0 0 24 24">
+                        <defs></defs>
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="M21 21l-4.35-4.35"></path>
+                    </svg>
                 </div>
-				<div class="form-group">
-                      <label id="name-label" for="name"> Date of Birth</label>
-                      <input type="date" name="dob" id="Dob" class="form-control" placeholder="Enter your DOB" required/>
-                </div>
-				<div class="form-group">
-                      <label id="number-label" for="number">Mobile Number</label>
-                      <input type="number" name="phone1" id="Phone_no1" min="10" max="99" class="form-control" placeholder="Enter Mobile Number"/>
-                </div>
-				<div class="form-group">
-                      <label id="name-label" for="name"> Father's Name</label>
-                      <input type="text" name="fname" id="Father_name" class="form-control" placeholder="Enter your father's name" required/>
-                </div>
-                <div class="form-group">
-                      <label id="name-label" for="name"> Mother's Name</label>
-                      <input type="text" name="mname" id="Mother_name" class="form-control" placeholder="Enter your mother's name" required/>
-                </div>
-                <div class="form-group">
-                      <label id="name-label" for="name"> Guardian's Name</label>
-                      <input type="text" name="gname" id="Guardian_name" class="form-control" placeholder="Enter your guardian's name" required />
-                </div>
-                <div class="form-group">
-                    <label id="name-label" for="name">Gender</label>
-                    <div class="c"><input type="radio" name="gender" id="Gender" value="Male" onclick="mygender();" checked> Male<br>
-                    <input type="radio" name="gender" id="Gender" class="form-cont" onclick="mygender();" value="Female" required>Female<br>
-                    <input type="radio" name="gender" id="Gender" class="form-cont" onclick="mygender();" value="Other" required>Other<br>
-                </div>
-                </div>
-                <div class="form-group">
-                      <label id="name-label" for="name">Blood Group</label>
-                      <input type="text" name="bgrp" id="Blood_group" class="form-control" placeholder="Enter your Blood group" required/>
-                </div>
-                <div class="form-group">
-                      <label id="number-label" for="number">Caste</label>
-                      <input type="text" name="caste" id="Caste" min="10" max="99" class="form-control" placeholder="Enter your caste" />
-                </div>
-                <div class="form-group">
-                    <label id="number-label" for="number">Category</label>
-                    <input type="text" name="category" id="Category" class="form-control" placeholder="Enter your category"/>
-                </div>
-                <div class="form-group">
-                    <label id="number-label" for="number">Aadhar Number</label>
-                    <input type="number" name="adno" id="Adhar_no" class="form-control" placeholder="Enter Aadhar Number "/>
-                </div>
-                <div class="form-group">
-                    <label id="number-label" for="number">PAN Number</label>
-                    <input type="number" name="adno" id="Pan_no" class="form-control" placeholder="Enter PAN Number "/>
-                </div>
-      
-  
-  </form>
-</div>
-        
-       
-        
-        
-        
-<div class="container">
-            <p style="color: black">Educational Details</p>
-  
-  <form id="survey-form">
-    <div class="form-group">
-                    <label id="name-label" for="name">Degree</label>
-                    <div class="c"><input type="radio" name="degree" id="Degree" class="radio" class="form-control" onclick="mydegree();" value="Engineering" checked> Engineering<br>
-                    <input type="radio" name="degree" id="Degree" class="radio" class="form-control" onclick="mydegree();" value="Polytechnic" >Polytechnic<br>
-                    <input type="radio" name="degree" id="Degree" class="radio" class="form-control" onclick="mydegree();" value="MBA" >MBA</div>
-                </div>
-				<div class="form-group">
-                    <label id="name-label" for="name">Department</label>
-                    <div class="c"><input type="radio" class="radio" name="dept" id="Department" class="form-control" placeholder="Enter your department" onclick="mydept();" value="Computer" checked required />Computer<br>
-                    <input type="radio" class="radio" name="dept" id="Department" class="form-control" placeholder="Enter your department" onclick="mydept();" value="IT" required />IT<br>
-                    <input type="radio" class="radio" name="dept" id="Department" class="form-control" placeholder="Enter your department" onclick="mydept();" value="Mechanical" required />Mechanical<br>
-                    <input type="radio" class="radio" name="dept" id="Department" class="form-control" placeholder="Enter your department" onclick="mydept();" value="Civil" required />Civil<br>
-                    <input type="radio" class="radio" name="dept" id="Department" class="form-control" placeholder="Enter your department" onclick="mydept();" value="Electrical" required />Electrical<br>
-                    <input type="radio" class="radio" name="dept" id="Department" class="form-control" placeholder="Enter your department" onclick="mydept();" value="E&TC" required />E&TC<br>
+            </div>
+            <div class="app-header-right">
+                <div class="dropdown profile-btn">
+                    <button class="dropbtn" onclick="myFunction();">
+                        <img src="https://assets.codepen.io/3306515/IMG_2025.jpg" />
+                        <span>Ankita</span>
+                    </button>
+                    <div class="dropdown-content" id="myDropdown">
+                        <a href="form.html">Profile</a>
+                        <a id="btn-logout" href="index.html">Logout</a>
                     </div>
                 </div>
-				<div class="form-group">
-                    <label id="number-label" for="number" >Year of Admission(Only last 2 digits)</label>
-                    <input type="number" name="year" id="Year_admission" min="10" max="99" class="form-control" placeholder="Enter year of admission" />   
-                </div>
-				<div class="form-group">
-                    <label id="name-label" for="name">Year Admitted</label>
-                    <div class="c"><input type="radio" class="radio" name="yearadd" id="Year_add" class="form-control" onclick="myyear();" value="FE" checked required>FE<br>
-                    <input type="radio" class="radio" name="yearadd" id="Year_add" class="form-control" onclick="myyear();" value="DSE" required>DSE<br>
-                    </div></div>
-				 <div class="form-group">
-                    <label id="number-label" for="number">Enter Year of Study</label>
-                    <input type="number" name="semester" id="Semester" min="1" max="4" class="form-control" placeholder="Enter year"/>
-                </div>
-				<div class="form-group">
-                    <label id="name-label" for="name">Division</label>
-                    <input type="text" name="section" id="Division" class="form-control" placeholder="Enter division" required/>
-                </div>
 
-    
-</form><br>
-            
-<div class="container">
-            <p style="color: black">Contact Details</p>
-  
-  <form id="survey-form">
-    <div class="form-group">
-                    <label id="number-label" for="number">Mobile Number</label>
-                    <input type="number" name="phone1" id="Phone_no1" min="10" max="99" class="form-control" placeholder="Enter Mobile Number"/>
-                </div>
-				<div class="form-group">
-                    <label id="number-label" for="number">Parents Mobile Number</label>
-                    <input type="number" name="phone2" id="Phone_no2" min="10" max="99" class="form-control" placeholder="Enter Parents Mobile Number" />
-                </div>
-				<div class="form-group">
-                    <label id="name-label" for="name"> Address</label>
-                    <input type="text" name="Address" id="Address" class="form-control" placeholder="Address" required />
-                    <input type="text" name="Address" id="Address" class="form-control" placeholder="City" required />
-                    <input type="text" name="Address" id="Address" class="form-control" placeholder="State" required />
-                    <input type="text" name="Address" id="Address" class="form-control" placeholder="Pincode" required />
-                </div>
-				<div class="form-group">
-                      <label id="email-label" for="email">Email</label>
-                      <input type="email" name="email4" id="Email" class="form-control" placeholder="Enter Email" required/>
-                </div>
-
-    
-</form><br>
-    </div>
-    
-    <div class="form-group">
-      <button type="submit" id="btn-update" class="submit-button"> Submit</button>
-    </div>
+            </div>
+            <button class="messages-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle">
+                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" />
+                </svg>
+            </button>
         </div>
-        </div></div> </div>   </div>
 
-<!-- partial -->
-    
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
-    
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    
-<script type="text/javascript" src="ui.js"></script>
+        <div class="app-content">
+            <div class="app-sidebar">
+                <a href="ui.html" class="app-sidebar-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                        <polyline points="9 22 9 12 15 12 15 22" />
+                    </svg>
+                </a>
+                <a href="attendance.html" class="app-sidebar-link">
+                    <svg class="link-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="feather feather-pie-chart" viewBox="0 0 24 24">
+                        <defs />
+                        <path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z" />
+                    </svg>
+                </a>
+                <a href="" class="app-sidebar-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                        <line x1="16" y1="2" x2="16" y2="6" />
+                        <line x1="8" y1="2" x2="8" y2="6" />
+                        <line x1="3" y1="10" x2="21" y2="10" />
+                    </svg>
+                </a>
+                <a href="https://feepayr.com/" class="app-sidebar-link">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sidebar">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="9" y1="3" x2="9" y2="21"></line>
+                        <defs />
+                    </svg>
+                </a>
+            </div>
+
+            <div class="projects-section">
+
+                <div class="container">
+                    <div class="container">
+                        <p style="color: black">Basic Details</p>
+                        <form id="survey-form">
+                            <div class="form-group">
+                                <label id="name-label" for="name">Name</label>
+                                <input type="text" name="name" id="Name" class="form-control" placeholder="Enter your name" formtarget="_self" required />
+                            </div>
+                            <div class="form-group">
+                                <label id="name-label" for="name"> Date of Birth</label>
+                                <input type="date" name="dob" id="Dob" class="form-control" placeholder="Enter your DOB" required />
+                            </div>
+                            <div class="form-group">
+                                <label id="number-label" for="number">Mobile Number</label>
+                                <input type="number" name="phone1" id="Phone_no1" min="10" max="99" class="form-control" placeholder="Enter Mobile Number" />
+                            </div>
+                            <div class="form-group">
+                                <label id="name-label" for="name"> Father's Name</label>
+                                <input type="text" name="fname" id="Father_name" class="form-control" placeholder="Enter your father's name" required />
+                            </div>
+                            <div class="form-group">
+                                <label id="name-label" for="name"> Mother's Name</label>
+                                <input type="text" name="mname" id="Mother_name" class="form-control" placeholder="Enter your mother's name" required />
+                            </div>
+                            <div class="form-group">
+                                <label id="name-label" for="name"> Guardian's Name</label>
+                                <input type="text" name="gname" id="Guardian_name" class="form-control" placeholder="Enter your guardian's name" required />
+                            </div>
+                            <div class="form-group">
+                                <label id="name-label" for="name">Gender</label>
+                                <div class="c"><input type="radio" name="gender" id="Gender" value="Male" onclick="mygender();" checked> Male<br>
+                                    <input type="radio" name="gender" id="Gender" class="form-cont" onclick="mygender();" value="Female" required>Female<br>
+                                    <input type="radio" name="gender" id="Gender" class="form-cont" onclick="mygender();" value="Other" required>Other<br>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label id="name-label" for="name">Blood Group</label>
+                                <input type="text" name="bgrp" id="Blood_group" class="form-control" placeholder="Enter your Blood group" required />
+                            </div>
+                            <div class="form-group">
+                                <label id="number-label" for="number">Caste</label>
+                                <input type="text" name="caste" id="Caste" min="10" max="99" class="form-control" placeholder="Enter your caste" />
+                            </div>
+                            <div class="form-group">
+                                <label id="number-label" for="number">Category</label>
+                                <input type="text" name="category" id="Category" class="form-control" placeholder="Enter your category" />
+                            </div>
+                            <div class="form-group">
+                                <label id="number-label" for="number">Aadhar Number</label>
+                                <input type="number" name="adno" id="Adhar_no" class="form-control" placeholder="Enter Aadhar Number " />
+                            </div>
+                            <div class="form-group">
+                                <label id="number-label" for="number">PAN Number</label>
+                                <input type="text" name="adno" id="Pan_no" class="form-control" placeholder="Enter PAN Number " />
+                            </div>
+
+
+                        </form>
+                    </div>
+
+
+
+
+
+                    <div class="container">
+                        <p style="color: black">Educational Details</p>
+
+                        <form id="survey-form">
+                            <div class="form-group">
+                                <label id="name-label" for="name">Degree</label>
+                                <div class="c"><input type="radio" name="degree" id="Degree" class="radio" class="form-control" onclick="mydegree();" value="Engineering" checked> Engineering<br>
+                                    <input type="radio" name="degree" id="Degree" class="radio" class="form-control" onclick="mydegree();" value="Polytechnic">Polytechnic<br>
+                                    <input type="radio" name="degree" id="Degree" class="radio" class="form-control" onclick="mydegree();" value="MBA">MBA
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label id="name-label" for="name">Department</label>
+                                <div class="c"><input type="radio" class="radio" name="dept" id="Department" class="form-control" placeholder="Enter your department" onclick="mydept();" value="Computer" checked required />Computer<br>
+                                    <input type="radio" class="radio" name="dept" id="Department" class="form-control" placeholder="Enter your department" onclick="mydept();" value="IT" required />IT<br>
+                                    <input type="radio" class="radio" name="dept" id="Department" class="form-control" placeholder="Enter your department" onclick="mydept();" value="Mechanical" required />Mechanical<br>
+                                    <input type="radio" class="radio" name="dept" id="Department" class="form-control" placeholder="Enter your department" onclick="mydept();" value="Civil" required />Civil<br>
+                                    <input type="radio" class="radio" name="dept" id="Department" class="form-control" placeholder="Enter your department" onclick="mydept();" value="Electrical" required />Electrical<br>
+                                    <input type="radio" class="radio" name="dept" id="Department" class="form-control" placeholder="Enter your department" onclick="mydept();" value="E&TC" required />E&TC<br>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label id="number-label" for="number">Year of Admission(Only last 2 digits)</label>
+                                <input type="number" name="year" id="Year_admission" min="10" max="99" class="form-control" placeholder="Enter year of admission" />
+                            </div>
+                            <div class="form-group">
+                                <label id="name-label" for="name">Year Admitted</label>
+                                <div class="c"><input type="radio" class="radio" name="yearadd" id="Year_add" class="form-control" onclick="myyear();" value="FE" checked required>FE<br>
+                                    <input type="radio" class="radio" name="yearadd" id="Year_add" class="form-control" onclick="myyear();" value="DSE" required>DSE<br>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label id="number-label" for="number">Enter Year of Study</label>
+                                <input type="number" name="semester" id="Semester" min="1" max="4" class="form-control" placeholder="Enter year" />
+                            </div>
+                            <div class="form-group">
+                                <label id="name-label" for="name">Division</label>
+                                <input type="text" name="section" id="Division" class="form-control" placeholder="Enter division" required />
+                            </div>
+
+
+                        </form><br>
+
+                        <div class="container">
+                            <p style="color: black">Contact Details</p>
+
+                            <form id="survey-form">
+                                <div class="form-group">
+                                    <label id="number-label" for="number">Mobile Number</label>
+                                    <input type="number" name="phone1" id="Phone_no1" min="10" max="99" class="form-control" placeholder="Enter Mobile Number" />
+                                </div>
+                                <div class="form-group">
+                                    <label id="number-label" for="number">Parents Mobile Number</label>
+                                    <input type="number" name="phone2" id="Phone_no2" min="10" max="99" class="form-control" placeholder="Enter Parents Mobile Number" />
+                                </div>
+                                <div class="form-group">
+                                    <label id="name-label" for="name"> Address</label>
+                                    <input type="text" name="Address" id="Address" class="form-control" placeholder="Address" required />
+                                </div>
+                                <div class="form-group">
+                                    <label id="email-label" for="email">Email</label>
+                                    <input type="email" name="email4" id="Email" class="form-control" placeholder="Enter Email" required />
+                                </div>
+
+
+                            </form><br>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" id="btn-update" class="submit-button"> Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- partial -->
+
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-storage.js"></script>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script type="text/javascript" src="ui.js"></script>
     <script type="text/javascript" src="main.js"></script>
-   <script>
-            firebase.auth().onAuthStateChanged(function(user){
-                if(!user){
-                    window.location.href = "index.html";
-                }
-                else{
-                        var userID = firebase.auth().currentUser.uid;
-                    var roll = firebase.database().ref().child('Users/' + userID).once('value').then(function(snapshot){
-                        var curuser=snapshot.val();
-                        console.log(curuser.Roll_no);
-                        document.getElementById("Roll_no").innerHTML =curuser.Roll_no;    
-                    })
-        </script> 
-    
-  
+    <script>
+        firebase.auth().onAuthStateChanged(function(user) {
+            if (!user) {
+                window.location.href = "index.html";
+            } else {
+                var userID = firebase.auth().currentUser.uid;
+                var roll = firebase.database().ref().child('Users/' + userID).once('value').then(function(snapshot) {
+                    var curuser = snapshot.val();
+                    console.log(curuser.Roll_no);
+                    document.getElementById("Roll_no").innerHTML = curuser.Roll_no;
+                })
+            }
+        });
+
+    </script>
+
+
 </body>
+
 </html>

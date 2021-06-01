@@ -6,133 +6,145 @@ var firebaseConfig = {
     messagingSenderId: "173415484990",
     appId: "1:173415484990:web:4b8c9c03ad75a384e80b6f",
     measurementId: "G-VEF8B1FNXR"
-  };
-  
+};
+
 // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-  firebase.analytics();
+firebase.initializeApp(firebaseConfig);
+firebase.analytics();
 
 firebase.auth.Auth.Persistence.LOCAL;
 
-var Roll_no;
-var user= firebase.auth().currentUser;
+var Roll_no, y17cs;
+var roll, rolln, sem, tot;
 
 
-$("#btn-login").click(function(){
+$("#btn-login").click(function () {
     var email = $("#email").val();
     var pass = $("#pass").val();
-    
-    if(email != "" && pass != ""){
-        var result = firebase.auth().signInWithEmailAndPassword(email,pass);
-                
-        result.catch(function(error){
-            var errorCode= error.code;
-            var errorMessage = error.message;   
+
+    if (email != "" && pass != "") {
+        var result = firebase.auth().signInWithEmailAndPassword(email, pass);
+
+        result.catch(function (error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
             window.alert("Message : " + errorMessage);
         });
-    }
-    else{
+    } else {
         window.alert("Please fill all fields");
     }
-    
-    var userID = firebase.auth().currentUser.uid;
-    var roll = firebase.database().ref().child('Users/' + userID).once('value').then(function(snapshot){
-        var curuser=snapshot.val();
+
+
+
+    /*var userID = firebase.auth().currentUser.uid;
+            document.getElementById("uid").innerHTML = curuser;
+
+    var a1 = firebase.database().ref().child('Users/' + userID).once('value').then(function (snapshot) {
+        var curuser = snapshot.val();
         console.log(curuser.Roll_no);
-        document.getElementById("Roll_no").innerHTML =curuser.Roll_no;   
-})      
-            
-    
+        document.getElementById("Roll_no").innerHTML = curuser;
+        var attendance = curuser.Attendance;
+        console.log(attendance);
+        var sem = curuser.Semester;
+
+    })
+    var a2 = firebase.database().ref().child('Academics/' + sem).once('value').then(function (snapshot) {
+        var tot = snapshot.val();
+    })
+
+    function myfunc_total() {
+        var data_per = ((attendance * 100) / tot);
+    }*/
+
+
 });
 /*var user = firebase.auth().currentUser;
 console.log(user);*/
 
-$("#btn-logout").click(function(){
+$("#btn-logout").click(function () {
     firebase.auth().signOut();
 });
 
-$("#btn-signup").click(function(){
+$("#btn-signup").click(function () {
     var email1 = $("#email1").val();
     var pass1 = $("#pass1").val();
     var copass = $("#copass").val();
-    
-    if(email1 != "" && pass1 != "" && copass != ""){
-        if(pass1 == copass){
+
+    if (email1 != "" && pass1 != "" && copass != "") {
+        if (pass1 == copass) {
             var result = firebase.auth().createUserWithEmailAndPassword(email1, pass1);
-            
-            result.catch(function(error){
+
+            result.catch(function (error) {
                 var errorCode = error.code;
                 var errorMessage = error.message;
-                
+
                 window.alert("Message : " + errorMessage);
             });
             window.alert("Account created");
-        }
-        else{
+        } else {
             window.alert("Passwords not matched");
         }
-    }
-    else{
+    } else {
         window.alert("Form incomplete");
     }
 
- });
+});
 
-function abc(){
-        window.location.href="index.html";
-    }
+function abc() {
+    window.location.href = "index.html";
+}
 
-$("#btn-cancel").click(function(){
+$("#btn-cancel").click(function () {
     window.location.href = "ui.html";
 });
 
-$("#btn-back").click(function(){
+$("#btn-back").click(function () {
     window.location.href = "index.html";
 });
 
-$("#btn-reset").click(function(){
+$("#btn-reset").click(function () {
     var authen = firebase.auth();
     var email2 = $("#email2").val();
-    
-    if(email2 != ""){
-        authen.sendPasswordResetEmail(email2).then(function(){
+
+    if (email2 != "") {
+        authen.sendPasswordResetEmail(email2).then(function () {
             window.alert("Check your mail")
         });
-        authen.catch(function(error){
+        authen.catch(function (error) {
             var errorCode = error.code;
             var errorMessage = error.message;
-                
+
             window.alert("Message : " + errorMessage);
         });
-    }
-    else{
+    } else {
         window.alert("Enter email address");
     }
 });
 
 function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
+    document.getElementById("myDropdown").classList.toggle("show");
 }
 
 // Close the dropdown if the user clicks outside of it
-window.onclick = function(e) {
-  if (!e.target.matches('.dropbtn')) {
-  var myDropdown = document.getElementById("myDropdown");
-    if (myDropdown.classList.contains('show')) {
-      myDropdown.classList.remove('show');
+window.onclick = function (e) {
+    if (!e.target.matches('.dropbtn')) {
+        var myDropdown = document.getElementById("myDropdown");
+        if (myDropdown.classList.contains('show')) {
+            myDropdown.classList.remove('show');
+        }
     }
-  }
 }
 
 
+
 function mygender() {
-    if(document.getElementById('Gender'.checked != true)){
+    if (document.getElementById('Gender'.checked != true)) {
         alert("Please Select Gender");
     }
     var x = document.getElementsByName("gender");
-    
-    for(var i=0;i<x.length;i++){
-        if(x[i].checked){
+
+    for (var i = 0; i < x.length; i++) {
+        if (x[i].checked) {
             console.log(x[i].value)
             break;
         }
@@ -141,10 +153,10 @@ function mygender() {
 }
 
 function mydept() {
-    
-    var y  = document.getElementsByName("dept");
-    for(var i=0; i<y.length;i++){
-        if(y[i].checked){
+
+    var y = document.getElementsByName("dept");
+    for (var i = 0; i < y.length; i++) {
+        if (y[i].checked) {
             console.log(y[i].value)
             break;
         }
@@ -154,8 +166,8 @@ function mydept() {
 
 function mydegree() {
     var z = document.getElementsByName("degree");
-    for(var i=0 ;i<z.length;i++) {
-        if(z[i].checked){
+    for (var i = 0; i < z.length; i++) {
+        if (z[i].checked) {
             console.log(z[i].value);
             break;
         }
@@ -164,9 +176,9 @@ function mydegree() {
 }
 
 function myyear() {
-    var a =document.getElementsByName("yearadd");
-    for(var i=0;i<a.length;i++){
-        if(a[i].checked){
+    var a = document.getElementsByName("yearadd");
+    for (var i = 0; i < a.length; i++) {
+        if (a[i].checked) {
             console.log(a[i].value);
             break;
         }
@@ -174,7 +186,7 @@ function myyear() {
     return a[i].value;
 }
 
-$("#btn-update").click(function(){
+$("#btn-update").click(function () {
     //var Roll_no = $("#Roll_no").val();
     var Degree = mydegree();
     var Department = mydept();
@@ -196,87 +208,85 @@ $("#btn-update").click(function(){
     var Phone_no1 = $("#Phone_no1").val();
     var Phone_no2 = $("#Phone_no2").val();
     //var Phone_no3 = $("#Phone_no3").val();
-   // var Gender = $("#Gender").val();
+    // var Gender = $("#Gender").val();
     var Gender = mygender();
-    var Pan_no =$("#Pan_no").val();
-    var Year_add= myyear();
-    
+    var Pan_no = $("#Pan_no").val();
+    var Year_add = myyear();
+
     var loginRef = firebase.database().ref().child("Users");
     var userID = firebase.auth().currentUser.uid;
     var usersRef = loginRef.child(userID);
     console.log(userID);
-    
 
-    
-   /* if(Degree!="" && Department!="" && Year_admission!="" && Name!="" && Semester!="" && Division!="" && Father_name!="" && Mother_name!="" && Guardian_name!="" && Dob!="" && Blood_group!="" && Caste!="" && Category!="" && Adhar_no!="" && Address!="" && Email!="" && Phone_no1!="" && Phone_no2!="" && Gender!="" && Pan_no!="" && Year_add!=""){*/
-    
-    if(Degree!="" && Department!="" && Year_add!="" && Year_admission!="")
-        {
-    var userData = {
-        //"Roll_no" : Roll_no,
-        "Degree" : Degree,
-        "Department" : Department,
-        "Year_admission" : Year_admission,
-        "Name" : Name,
-        "Semester" : Semester,
-        "Division" : Division,
-        "Father_name" : Father_name,
-        "Mother_name" : Mother_name,
-        "Guardian_name" : Guardian_name,
-        "Dob" : Dob,
-        "Blood_group" : Blood_group,
-        "Caste" : Caste,
-        "Category" : Category,
-        //"Religion" : Religion,
-        "Adhar_no" : Adhar_no,
-        "Address" : Address,
-        "Email" : Email,
-        "Phone_no1" : Phone_no1,
-        "Phone_no2" : Phone_no2,
-        //"Phone_no3" : Phone_no3,
-        "Gender" : Gender,
-        "Pan_no" : Pan_no,
-        "Year_add" : Year_add,
-    };
-        
-    }
-    else{
+
+
+    /* if(Degree!="" && Department!="" && Year_admission!="" && Name!="" && Semester!="" && Division!="" && Father_name!="" && Mother_name!="" && Guardian_name!="" && Dob!="" && Blood_group!="" && Caste!="" && Category!="" && Adhar_no!="" && Address!="" && Email!="" && Phone_no1!="" && Phone_no2!="" && Gender!="" && Pan_no!="" && Year_add!=""){*/
+
+    if (Degree != "" && Department != "" && Year_add != "" && Year_admission != "") {
+        var userData = {
+            //"Roll_no" : Roll_no,
+            "Degree": Degree,
+            "Department": Department,
+            "Year_admission": Year_admission,
+            "Name": Name,
+            "Semester": Semester,
+            "Division": Division,
+            "Father_name": Father_name,
+            "Mother_name": Mother_name,
+            "Guardian_name": Guardian_name,
+            "Dob": Dob,
+            "Blood_group": Blood_group,
+            "Caste": Caste,
+            "Category": Category,
+            //"Religion" : Religion,
+            "Adhar_no": Adhar_no,
+            "Address": Address,
+            "Email": Email,
+            "Phone_no1": Phone_no1,
+            "Phone_no2": Phone_no2,
+            //"Phone_no3" : Phone_no3,
+            "Gender": Gender,
+            "Pan_no": Pan_no,
+            "Year_add": Year_add,
+        };
+
+    } else {
         alert("Please Enter Degree/Department/Year of admission/Year Admitted");
     }
-    switch(Degree){
-            case "Engineering":
-                var roll1="EN";
-                break;
-            case "Polytechnic":
-                var roll1="Po";
-                break;
-            case "MBA":
-                var roll1="Mb";
-                break;
-        }
-        console.log(roll1);
-    switch(Department){
+    switch (Degree) {
+        case "Engineering":
+            var roll1 = "EN";
+            break;
+        case "Polytechnic":
+            var roll1 = "Po";
+            break;
+        case "MBA":
+            var roll1 = "Mb";
+            break;
+    }
+    console.log(roll1);
+    switch (Department) {
         case "Computer":
             var roll4 = "CS";
             break;
         case "IT":
-            var roll4="IT";
+            var roll4 = "IT";
             break;
         case "Mechanical":
-            var roll4="MEC";
+            var roll4 = "MEC";
             break;
         case "Civil":
-            var roll4="CIV";
+            var roll4 = "CIV";
             break;
         case "Electrical":
-            var roll4="ELE";
+            var roll4 = "ELE";
             break;
         case "E&TC":
-            var roll4="E&TC";
+            var roll4 = "E&TC";
             break;
     }
     console.log(roll4);
-    switch(Year_add){
+    switch (Year_add) {
         case "FE":
             var roll3 = "FE";
             break;
@@ -285,70 +295,127 @@ $("#btn-update").click(function(){
             break;
     }
     console.log(roll3);
-    
+
     var roll2 = Year_admission;
     console.log(roll2);
-    
-    var roll = roll1+roll2+roll3+roll4;
-    console.log(roll);
-        
-    
-    
-    usersRef.set(userData, function(error){
-        if(error){
-            var errorCode = error.code;
-            var errorMessage = error.message;
-                
-            window.alert("Message : " + errorMessage);
-        }
-       /* else{
-            window.location.href = "form.html";
-        }*/
-    });
-    usersRef.update({
-        "Roll_no":Roll_no
-    });
-    
-   /* var roll = firebase.database().ref().child('Users/' + userID).once('value').then(function(snapshot){
-        var curuser=snapshot.val();
-        console.log(curuser.Roll_no);
-        //$("#Roll_no").append(Roll_no);
-    })*/
-});
-/*var roll = firebase.database().ref().child('Users/' + userID).once('value').then(function(snapshot){
-        var curuser=snapshot.val();
-        console.log(curuser.Roll_no);*/
-   // })
-/*if(user){   
-        $("#Roll_no").append(Roll_no);
-}*/
-/*var loginRef =firebase.database().ref().child("Users");
-var userID = firebase.auth().currentUser.uid;
-var usersRef = loginRef.child(userID);
-usersRef.set({
-    "Roll_no" : Roll_no
-});
-firebase.database().ref().child("Users/" + uid).set({
-    "Roll_no":Roll_no
-});*/
 
-$("#btn-a").click(function(){
+    var roll = roll1 + roll2 + roll3 + roll4;
+    console.log(roll);
+
+    var number = firebase.database().ref().child('Counter/').on('value', (snapshot) => {
+        var y17cs = snapshot.child("2017/Computer").val();
+        console.log(y17cs);
+
+        var y20cs = snapshot.child("2020/CS").val();
+        console.log(y20cs);
+
+
+        var y21 = snapshot.child("2021").val();
+
+        var y21cs = y21.Computer;
+        console.log(y21cs);
+
+        var y21civ = y21.Civil;
+        console.log(y21civ);
+
+        var y21elec = y21.Electrical;
+        console.log(y21elec);
+
+        var y21entc = snapshot.child("2021/E&Tc").val();
+        console.log(y21entc);
+
+        var abc = roll + y17cs;
+        console.log(abc)
+
+        switch (roll) {
+            case "EN17FECS":
+                var rolln = roll + y17cs;
+                y17cs++;
+        }
+        console.log(rolln);
+        console.log(y17cs)
+
+
+
+        usersRef.update(userData, function (error) {
+            if (error) {
+                var errorCode = error.code;
+                var errorMessage = error.message;
+
+                window.alert("Message : " + errorMessage);
+            }
+            /* else{
+                 window.location.href = "form.html";
+             }*/
+        });
+        usersRef.update({
+            "Roll_no": rolln
+        });
+
+        /*var userID = firebase.auth().currentUser.uid;
+        var a1 = firebase.database().ref().child('Users/' + userID).once('value').then(function (snapshot) {
+            var curuser = snapshot.val();
+            console.log(curuser.Roll_no);
+            document.getElementById("Roll_no").innerHTML = curuser.Roll_no;
+            var attendance = curuser.Attendance;
+            console.log(attendance);
+            var sem = curuser.Semester;
+            console.log(sem)
+
+            var a2 = firebase.database().ref().child('Academics/' + sem).once('value').then(function (snapshot) {
+                var tot = snapshot.val().Totallecnow;
+                console.log(tot);
+                var a3 = firebase.database().ref().child('Academics').once('value').then(function (snapshot) {
+                    var grand = snapshot.val().Grandtotal;
+                    console.log(grand)
+
+                    var total2 = ((attendance * 100) / tot);
+                    var total = total2.toFixed(2);
+                    console.log(total);
+                    var lecatt = ((grand * 75) / 100) - attendance;
+                    console.log(lecatt);
+                    var lecleft = (grand - tot);
+                    console.log(lecleft);
+                    
+                    const div1 = document.getElementById("circle");
+                    //div1.setAttribute('data-percentage',total);
+                    
+                    //document.getElementByDatapercentage("87").innerHTML= lecleft;
+                    document.getElementsByName("data-percentage").innerHTML = total;
+                    
+                    var notice = firebase.database().ref().child('Notice/'+ sem +'/Fy').once('value').then(function(snapshot){
+                        var fy = snapshot.forEach(function(Fy){
+                            console.log(Fy.key+":"+Fy.val());
+                        }) 
+        })
+                })
+            })
+        })*/
+    })
+
+});
+
+
+$("#btn-a").click(function () {
     window.location.href = "index.html";
 });
 
 
-$("#btn-b").click(function(){
+$("#btn-b").click(function () {
     window.location.href = "signup.html";
 });
 
-$("#main").click(function(){
+$("#main").click(function () {
     window.location.href = "form.html";
 });
 
-firebase.database().ref().child('Academics/').on('value', (snapshot)=>{
-    console.log(snapshot.val());
+
+/*var demo = firebase.database().ref().child('Academics/').on('value', (snapshot)=>{
+   // console.log(snapshot.val());
+    var dem = snapshot.val();
 })
-/*var loginRef = firebase.database().ref().child("Users");
+console.log(demo.dem)
+var loginRef = firebase.database().ref().child("Users");
     var userID = firebase.auth().currentUser.uid;
     var usersRef = loginRef.child(userID);
 console.log(userID);*/
