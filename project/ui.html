@@ -32,7 +32,7 @@
                 <div class="dropdown profile-btn">
                     <button class="dropbtn" onclick="myFunction();">
                         <img src="https://assets.codepen.io/3306515/IMG_2025.jpg" />
-                        <span>Ankita</span>
+                        <span id="Name">Ankita</span>
                     </button>
                     <div class="dropdown-content" id="myDropdown">
                         <a href="form.html">Profile</a>
@@ -60,7 +60,7 @@
                         <path d="M21.21 15.89A10 10 0 118 2.83M22 12A10 10 0 0012 2v10z" />
                     </svg>
                 </a>
-                <a href="" class="app-sidebar-link">
+                <a href="calendar.html" class="app-sidebar-link">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-calendar">
                         <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                         <line x1="16" y1="2" x2="16" y2="6" />
@@ -173,6 +173,7 @@
                     var curuser = snapshot.val();
                     console.log(curuser.Roll_no);
                     document.getElementById("Roll_no").innerHTML = curuser.Roll_no;
+                    document.getElementById("Name").innerHTML = curuser.Name;
                     //document.getElementById("uid").innerHTML = userID;
                     var sem = curuser.Semester;
                     
@@ -187,7 +188,7 @@
                                 var val = '<div style="text-align:left"><br>'+title1+'<br>'+content1+'<br><hr>Link: <a href="'+link+'">'+link+'</a><br></div><div style="text-align:right">'+date+'<br><br></div>';
                                 console.log(val);
 
-                            document.getElementById("notice").innerHTML += '<div class="project-box  project-box-content-header project-box-wrapper " style="background-color: #e9e7fd;">'+val+'</div>';
+                            document.getElementById("notice").innerHTML += '<div class="project-box  project-box-content-header project-box-wrapper " style="background-color: #CCCCFF;">'+val+'</div>';
                         })
                     })
             })
