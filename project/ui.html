@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>demo</title>
+    <title>Notices</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
     <link rel="stylesheet" href="ui.css">
 
@@ -185,7 +185,7 @@
                                 var date=snapshot1.val().date;
                                 var link =snapshot1.val().link;
                                 var title1=snapshot1.val().title1;
-                                var val = '<div style="text-align:left"><br>'+title1+'<br>'+content1+'<br><hr>Link: <a href="'+link+'">'+link+'</a><br></div><div style="text-align:right">'+date+'<br><br></div>';
+                                var val = '<div style="text-align:left"><br>'+title1+'<br>'+content1+'<br><hr style="border-top: 1px solid white">Link: <a href="'+link+'">'+link+'</a><br></div><div style="text-align:right">'+date+'<br><br></div>';
                                 console.log(val);
 
                             document.getElementById("notice").innerHTML += '<div class="project-box  project-box-content-header project-box-wrapper " style="background-color: #CCCCFF;">'+val+'</div>';

@@ -7,6 +7,7 @@
     <title>Attendance</title>
     <link rel="stylesheet" href="att.css">
         <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 
 
 </head>
@@ -48,6 +49,7 @@
         </div>
 
         <div class="app-content">
+            <!--   -->
             <div class="app-sidebar">
                 <a href="ui.html" class="app-sidebar-link">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home">
@@ -76,6 +78,7 @@
                         <defs />
                     </svg>
                 </a>
+                <!--      -->
             </div>
 
             <div class="projects-section">
@@ -150,12 +153,27 @@
                     console.log(curuser.Roll_no);
                     document.getElementById("Roll_no").innerHTML = curuser.Roll_no;
                     document.getElementById("Name").innerHTML = curuser.Name;
+                    var roll = curuser.Roll_no;
                     var attendance = curuser.Attendance;
-            console.log(attendance);
-            var sem = curuser.Semester;
-            console.log(sem)
-
-            var a2 = firebase.database().ref().child('Academics/' + sem).once('value').then(function (snapshot) {
+                    var year = curuser.Semester;
+                    console.log(year)
+                    var dept;
+                    if(year==1){
+                        dept="Fy";
+                    }
+                    else{
+                        dept=curuser.Department;
+                    }
+                    var division = curuser.Division;
+                    console.log(division);
+                    console.log(dept);
+                    console.log(roll)
+                    
+                    firebase.database().ref().child('Classroom').child(year).child(dept).child(division).child( roll).once( 'value').then(function(snapshot){ 
+                        var attendance = snapshot.val().Attendance;
+                        console.log(attendance);
+                    
+            var a2 = firebase.database().ref().child('Academics/' + year).once('value').then(function (snapshot) {
                 var tot = snapshot.val().Totallecnow;
                 console.log(tot);
                 var a3 = firebase.database().ref().child('Academics').once('value').then(function (snapshot) {
@@ -178,6 +196,7 @@
                 })
             })
             })
+                    })
             }
         });
         

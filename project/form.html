@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8">
-    <title>CodePen - Day 001 Login Form</title>
+    <title>Form</title>
     <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans:600'>
     <link rel="stylesheet" href="ui.css">
     <link rel="stylesheet" href="demo.css">
@@ -31,7 +31,7 @@
                 <div class="dropdown profile-btn">
                     <button class="dropbtn" onclick="myFunction();">
                         <img src="https://assets.codepen.io/3306515/IMG_2025.jpg" />
-                        <span id="Name"></span>
+                        <span id="name"></span>
                     </button>
                     <div class="dropdown-content" id="myDropdown">
                         <a href="form.html">Profile</a>
@@ -86,7 +86,7 @@
                         <form id="survey-form">
                             <div class="form-group">
                                 <label id="name-label" for="name">Name</label>
-                                <input type="text" name="name" id="Name" class="form-control" placeholder="Enter your name" formtarget="_self" required />
+                                <input type="text" name="name" id="Name" class="form-control" placeholder="Enter your name" required />
                             </div>
                             <div class="form-group">
                                 <label id="name-label" for="name"> Date of Birth</label>
@@ -162,7 +162,7 @@
                                     <input type="radio" class="radio" name="dept" id="Department" class="form-control" placeholder="Enter your department" onclick="mydept();" value="Mechanical" required />Mechanical<br>
                                     <input type="radio" class="radio" name="dept" id="Department" class="form-control" placeholder="Enter your department" onclick="mydept();" value="Civil" required />Civil<br>
                                     <input type="radio" class="radio" name="dept" id="Department" class="form-control" placeholder="Enter your department" onclick="mydept();" value="Electrical" required />Electrical<br>
-                                    <input type="radio" class="radio" name="dept" id="Department" class="form-control" placeholder="Enter your department" onclick="mydept();" value="E&TC" required />E&TC<br>
+                                    <input type="radio" class="radio" name="dept" id="Department" class="form-control" placeholder="Enter your department" onclick="mydept();" value="E&TC" required />E&Tc<br>
                                 </div>
                             </div>
                             <div class="form-group">
@@ -243,7 +243,7 @@
                     var curuser = snapshot.val();
                     console.log(curuser.Roll_no);
                     document.getElementById("Roll_no").innerHTML = curuser.Roll_no;
-                    document.getElementById("Name").innerHTML = curuser.Name;
+                    document.getElementById("name").innerHTML = curuser.Name;
                 })
             }
         });

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>demo</title>
+    <title>Calendar</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -90,7 +90,7 @@
                                 <div class="pie-chart__pie"></div>
                                 <ul class="pie-chart__legend">
                                     <li><em>Lectures Attended</em><span id="present">6</span></li>
-                                    <li><em>Lectures Missed</em><span id="absent"></span></li>
+                                    <li><em>Lectures Missed</em><span id="absent">0</span></li>
                                 </ul>
                             </div>
                         </div>
@@ -115,7 +115,7 @@
     <!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>-->
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <script type="text/javascript" src="cal.js"></script>
+    <!--<script type="text/javascript" src="cal.js"></script>-->
     <script type="text/javascript" src="main.js"></script>
     <!--<script type="text/javascript" src="test.js"></script>-->
     <script>
@@ -161,6 +161,97 @@
                             var select = date+'/'+month+'/'+year1;
                             /*if (!firebase.database().ref().child('Classroom').child(year).child(dept).child(division).child(roll).child('Ttattendance').child(finaldate)) {*/
                         firebase.database().ref().child('Classroom').child(year).child(dept).child(division).child(roll).child('Ttattendance').child(finaldate).once('value').then(function(snapshot) {
+                            function sliceSize(dataNum, dataTotal) {
+  return (dataNum / dataTotal) * 360;
+}
+
+function addSlice(id, sliceSize, pieElement, offset, sliceID, color) {
+  $(pieElement).append("<div class='slice "+ sliceID + "'><span></span></div>");
+  var offset = offset - 1;
+  var sizeRotation = -179 + sliceSize;
+
+  $(id + " ." + sliceID).css({
+    "transform": "rotate(" + offset + "deg) translate3d(0,0,0)"
+  });
+
+  $(id + " ." + sliceID + " span").css({
+    "transform"       : "rotate(" + sizeRotation + "deg) translate3d(0,0,0)",
+    "background-color": color
+  });
+}
+
+function iterateSlices(id, sliceSize, pieElement, offset, dataCount, sliceCount, color) {
+  var
+    maxSize = 179,
+    sliceID = "s" + dataCount + "-" + sliceCount;
+
+  if( sliceSize <= maxSize ) {
+    addSlice(id, sliceSize, pieElement, offset, sliceID, color);
+  } else {
+    addSlice(id, maxSize, pieElement, offset, sliceID, color);
+    iterateSlices(id, sliceSize-maxSize, pieElement, offset+maxSize, dataCount, sliceCount+1, color);
+  }
+}
+
+function createPie(id) {
+  var
+    listData      = [],
+    listTotal     = 0,
+    offset        = 0,
+    i             = 0,
+    pieElement    = id + " .pie-chart__pie"
+    dataElement   = id + " .pie-chart__legend"
+
+    color         = [
+      "cornflowerblue",
+      "olivedrab",
+      "orange",
+      "tomato",
+      "crimson",
+      "purple",
+      "turquoise",
+      "forestgreen",
+      "navy"
+    ];
+
+  color = shuffle( color );
+
+  $(dataElement+" span").each(function() {
+    listData.push(Number($(this).html()));
+  });
+
+  for(i = 0; i < listData.length; i++) {
+    listTotal += listData[i];
+  }
+
+  for(i=0; i < listData.length; i++) {
+    var size = sliceSize(listData[i], listTotal);
+    iterateSlices(id, size, pieElement, offset, i, 0, color[i]);
+    $(dataElement + " li:nth-child(" + (i + 1) + ")").css("border-color", color[i]);
+    offset += size;
+  }
+}
+
+function shuffle(a) {
+    var j, x, i;
+    for (i = a.length; i; i--) {
+        j = Math.floor(Math.random() * i);
+        x = a[i - 1];
+        a[i - 1] = a[j];
+        a[j] = x;
+    }
+
+    return a;
+}
+
+function createPieCharts() {
+  createPie('.pieID--micro-skills' );
+  createPie('.pieID--categories' );
+  createPie('.pieID--operations' );
+}
+
+createPieCharts();
+                            if(snapshot.exists()){
                             var arr1 = snapshot.val();
                             console.log(arr1);
                             var arr2 = arr1.split(',');
@@ -169,11 +260,12 @@
                             document.getElementById("present").innerHTML=present;
                             document.getElementById("absent").innerHTML=absent;
                             document.getElementById("lectures").innerHTML=arr1+'<br><br>'+select;
-                        })
-                  //  }
-                          /*  else{
-                                 document.getElementById("lectures").innerHTML="No Data Available";
-                        }*/
+                        
+                    }
+                            
+                            else{
+                                 document.getElementById("lectures").innerHTML="No Data Available for"+'<br><br>'+select;
+                        }})
                 })
                    })
                     });

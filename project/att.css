@@ -1101,6 +1101,7 @@ a {
     text-decoration: none;
     display: block;
     text-align: left;
+    z-index: -1;
 }
 
 .dropdown-content a:hover {
@@ -1109,5 +1110,7 @@ a {
 
 .show {
     display: block;
-    margin-top: 140px;
+    margin-top: 60px;
+    position: absolute;
+    z-index: 1;
 }

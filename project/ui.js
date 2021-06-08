@@ -66,11 +66,11 @@ $("#btn-logout").click(function () {
     firebase.auth().signOut();
 });
 
-var ref = firebase.database().ref();
+/*var ref = firebase.database().ref();
 ref.once("value")
   .then(function(snapshot) {
     var name = snapshot.child("Classroom").child("EN17FECS5").child("Attendance").val(); 
-   });
+   });*/
 
 
 

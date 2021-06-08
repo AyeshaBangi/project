@@ -35,31 +35,8 @@ $("#btn-login").click(function () {
     }
 
 
-
-    /*var userID = firebase.auth().currentUser.uid;
-            document.getElementById("uid").innerHTML = curuser;
-
-    var a1 = firebase.database().ref().child('Users/' + userID).once('value').then(function (snapshot) {
-        var curuser = snapshot.val();
-        console.log(curuser.Roll_no);
-        document.getElementById("Roll_no").innerHTML = curuser;
-        var attendance = curuser.Attendance;
-        console.log(attendance);
-        var sem = curuser.Semester;
-
-    })
-    var a2 = firebase.database().ref().child('Academics/' + sem).once('value').then(function (snapshot) {
-        var tot = snapshot.val();
-    })
-
-    function myfunc_total() {
-        var data_per = ((attendance * 100) / tot);
-    }*/
-
-
 });
-/*var user = firebase.auth().currentUser;
-console.log(user);*/
+
 
 $("#btn-logout").click(function () {
     firebase.auth().signOut();
@@ -302,40 +279,18 @@ $("#btn-update").click(function () {
     var roll = roll1 + roll2 + roll3 + roll4;
     console.log(roll);
 
-    var number = firebase.database().ref().child('Counter/').on('value', (snapshot) => {
-        var y17cs = snapshot.child("2017/Computer").val();
-        console.log(y17cs);
-
-        var y20cs = snapshot.child("2020/CS").val();
-        console.log(y20cs);
-
-
-        var y21 = snapshot.child("2021").val();
-
-        var y21cs = y21.Computer;
-        console.log(y21cs);
-
-        var y21civ = y21.Civil;
-        console.log(y21civ);
-
-        var y21elec = y21.Electrical;
-        console.log(y21elec);
-
-        var y21entc = snapshot.child("2021/E&Tc").val();
-        console.log(y21entc);
-
-        var abc = roll + y17cs;
-        console.log(abc)
-
-        switch (roll) {
-            case "EN17FECS":
-                var rolln = roll + y17cs;
-                y17cs++;
-        }
-        console.log(rolln);
-        console.log(y17cs)
-
-
+        var dept = Department;
+    console.log(dept);
+        
+        Year_admission = 20+Year_admission;
+        console.log(Year_admission);
+        firebase.database().ref().child("Counter").child(Year_admission).child(dept).once('value').then(function(snapshot){
+            var a = snapshot.val();
+            console.log(a);
+            roll = roll+a;
+            console.log(roll);
+            a++;
+            console.log(a);
 
         usersRef.update(userData, function (error) {
             if (error) {
@@ -349,8 +304,13 @@ $("#btn-update").click(function () {
              }*/
         });
         usersRef.update({
-            "Roll_no": rolln
+            "Roll_no": roll
         });
+        
+        firebase.database().ref().child("Counter").child(Year_admission).update({
+            [dept]:a
+        })
+        })
 
         /*var userID = firebase.auth().currentUser.uid;
         var a1 = firebase.database().ref().child('Users/' + userID).once('value').then(function (snapshot) {
@@ -391,7 +351,7 @@ $("#btn-update").click(function () {
                 })
             })
         })*/
-    })
+    
 
 });
 
