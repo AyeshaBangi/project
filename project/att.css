@@ -72,23 +72,23 @@
     stroke-dasharray: 251.3274122872px;
 }
 
-.right {
+/*.right {*/
     /*float: right;*/
-    padding: inherit;
+    /*padding: inherit;
     /*margin-top: -40px;*/
-}
+/*}
 
-.left {
+.left {*/
     /*float: left;*/
-    padding: inherit;
+   /* padding: inherit;*/
     /*margin-top: -60px;*/
-}
+/*}
 
-.center {
+.center {*/
     /*float: center;*/
-    padding: inherit;
+   /* padding: inherit;*/
     /*margin-top: -40px;*/
-}
+/*}*/
 
 
 
